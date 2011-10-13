@@ -9,7 +9,7 @@ from django.utils import simplejson as json
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 
-APP_SECRET = '9935982c34d5bbca4b6ad5b641be3535'
+APP_SECRET = ''
 
 def base64_url_decode(data):
     data = data.encode(u'ascii')
