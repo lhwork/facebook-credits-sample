@@ -1,0 +1,41 @@
+<div id="fb-root"></div>
+<script src="https://connect.facebook.net/en_US/all.js"></script>
+<script>
+FB.init({ 
+    appId:'<APP_ID>', 
+    cookie:true, 
+    status:true, 
+    xfbml:true, 
+    oauth:true
+});
+
+function pay(){
+    FB.ui({
+        method:'pay',
+        //credits_purchase: true,
+        purchase_type:'item',
+        //redirect_uri: '<URL>',
+        //dev_purchase_params: {'oscif':true},
+        order_info:{
+                item_id:'10',
+                title:'10 K COIN',
+                price:100,
+                description:'Get 10 K COIN',
+                image_url:'<MEDIA_URL>',
+                product_url:'<MEDIA_URL>'
+            }
+        },
+        function(response){
+            console.log('pay() response: ', response);
+            if(response.order_id) {
+                //alert("order_id=" + response.order_id);
+                window.top.location='<URL>'; 
+            }
+            else {
+                //alert(response.error_message);
+            }
+        }
+    );
+    return false;
+}
+</script>
